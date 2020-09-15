@@ -4,6 +4,19 @@
 # The least significant bit is at index 7.
 # Calculate  and return the decimal value for this binary number using
 # the algorithm you devised in class.
-def binary_to_decimal(binary_array)
-  raise NotImplementedError
+binary = Array.new(8) {rand(0..1)}
+
+def binary_to_decimal(binary)
+  puts binary.join + "\n"
+  a = binary.length
+  decimal = 0
+
+  for i in 0...a do
+    reverse_index = 7 - i
+    num = binary[reverse_index].to_i * 2**i
+    decimal +=num
+  end
+  puts decimal
 end
+
+binary_to_decimal(binary)
